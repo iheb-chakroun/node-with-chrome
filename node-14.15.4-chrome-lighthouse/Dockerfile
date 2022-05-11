@@ -15,7 +15,6 @@ CMD google-chrome \
   --headless \
   --disable-gpu \
   --remote-debugging-port=9222 \
-  --window-size=1280x1024 \
   --no-default-browser-check \
   --no-first-run \
   --disable-default-apps \
