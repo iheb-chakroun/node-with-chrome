@@ -1,0 +1,1 @@
+https://github.com/elastic/dockerfiles/tree/7.16/elasticsearch

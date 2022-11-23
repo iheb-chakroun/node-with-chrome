@@ -1,0 +1,22 @@
+name: ci-node-chrome-mongo-elasticsearch-rabbitmq
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - node-chrome-mongo-elasticsearch-rabbitmq/Dockerfile
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: Build the Docker images
+        run: |
+          docker build node-chrome-mongo-elasticsearch-rabbitmq --file node-chrome-mongo-elasticsearch-rabbitmq/Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/node-chrome-mongo-elasticsearch-rabbitmq:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/node-chrome-mongo-elasticsearch-rabbitmq:latest

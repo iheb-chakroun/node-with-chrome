@@ -1,0 +1,1 @@
+https://github.com/docker-library/rabbitmq/tree/master/3.9/ubuntu
